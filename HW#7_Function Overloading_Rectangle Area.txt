@@ -1,0 +1,49 @@
+/* Rectangle Area
+Austin Kao
+10/17/2017
+version 1.0
+it allows the user to enter the length and width of the rectangle and display the area using four functions
+*/
+#include <iostream>
+
+using namespace std;
+double getLength();
+double getWidth();
+double getArea(double, double);
+double getArea(double);
+void displayData(double, double, double);
+int main()
+{
+	double l = getLength();//get the length of the rectangle 
+	double w = getWidth();//get the width of the rectangle
+	double a = getArea(l,w);//get the area of the rectangle using length and width
+	displayData(l,w,a);//display the length,width,and area of the rectangle
+}
+double getLength()
+{
+	double l;
+	cout << "Enter the length of the rectangle\n";
+	cin >> l;
+	return l;//return length
+}
+double getWidth()
+{
+	double w;
+	cout << "Enter the width of the rectangle\n";
+	cin >> w;
+	return w;//return width 
+}
+double getArea(double l, double w)
+{
+	return l*w;//return the area
+}
+void displayData(double l,double w, double a)//display data
+{
+	cout << "The length of the rectangle is " << l << endl;
+	cout << "the width of the rectangle is " << w << endl;
+	cout << "the area of the rectangle is " << a << endl;
+}
+double getArea(double w)
+{
+	return w*w*3.1415926;
+}

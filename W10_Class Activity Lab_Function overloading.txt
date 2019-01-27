@@ -1,0 +1,36 @@
+/* class activity
+Austin Kao
+10/17/2017
+version 1.0
+it use overload function add to add two different number 
+*/
+#include<iostream>
+using namespace std;
+
+
+double add(double, double);
+int add(int, int);
+
+int main()
+{
+	double total;
+	double n1 = 5.2;
+	double n2 = 2.6;
+	// we call function add here
+	total = add(n1, n2);
+
+	cout << "The totla is " << total << endl;
+	cout << "The n2 is " << n2 << endl;
+	cout << add(10, 20) << endl;
+	return 0;
+}
+double add(double a, double b)
+{
+	cout << "We have two double double values." << endl;
+	return a + b;
+}
+int add(int a, int b)
+{
+	cout << "We have two int values." << endl;
+	return a + b;
+}

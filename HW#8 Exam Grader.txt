@@ -1,0 +1,61 @@
+/* Exam Grader
+Austin Kao
+10/31/2017
+version 1.0
+this program read the CorrectAnswers.txt and AtudentAnswers.txt into two different char array and compare it, it then compare the arrays and display :
+a list of the questions missed by the students, showing the correct and the iccorrect answer
+total number of the questions missed
+the percentage of correct answered question
+whether the student passed the class
+*/
+#include<iostream>
+#include<fstream>
+using namespace std;
+void displayResults(int c);//display total number of the questions missed, the percentage of correct answered question, and whether the student passed the class
+int compareTests(char i[], char j[]);//compare two array, display the question missed and return the number of the correct answer 
+void main()
+{
+	char studentAnswers[20];//define two arrays
+	char correctAnswers[20];
+	int n = 0;//c is the number of the currect answer, n is the number used to read the letter from the file to the array 
+
+	ifstream inputf;
+	inputf.open("CorrectAnswers.txt", ios::in);//open the first file 
+	while (n<20 && inputf >> correctAnswers[n])//read the letter
+		n++;
+	n = 0;
+	inputf.close();//close the first file
+	inputf.open("StudentAnswers.txt", ios::in);//open the second file 
+	while (n<20 && inputf >> studentAnswers[n])
+		n++;
+	inputf.close();//close the second file
+
+	displayResults(compareTests(studentAnswers, correctAnswers));//display total number of the questions missed, the percentage of correct answered question, and whether the student passed the class
+}
+void displayResults(int c)//display total number of the questions missed, the percentage of correct answered question, and whether the student passed the class
+{
+	if (c == 20)//display total number of the questions missed
+		cout << "You didn't missed any question\n";
+	else if (c == 19)
+		cout << "You missed 1 question out of 20\n";
+	else
+		cout << "You missed " << 20 - c << " questions out of 20\n";
+
+	cout << "You got a " << c / 20.0 * 100 << "%\n";//display the percentage of correct answered question
+	if (c / 20.0 >= 0.7)//display whether the student passed the class
+		cout << "You passed the exam\n";
+	else
+		cout << "You failed the exam\n";
+}
+int compareTests(char s[], char c[])//compare two array, display the question missed and return the number of the correct answer
+{
+	int n = 0;
+	for (int i = 0;i < 20;i++)//compare two array
+	{
+		if (s[i] == c[i])// the number of the currect answer +1 if the letters match
+			n++;
+		else
+			cout << "Question " << i + 1 << ": correct answer is " << c[i] << ", your answer is " << s[i] << endl;//display question missed if the letters didn't match
+	}
+	return n;//return number of the currect answer
+}

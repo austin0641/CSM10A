@@ -1,0 +1,46 @@
+/*
+Austin Kao
+mode function 
+11/22/2017
+vision 1.0
+this program finds the first mode of a array
+*/
+#include<iostream>
+using namespace std;
+int mode(int[], int);
+int main()
+{
+	int n;//the number of element in a array 
+	cout << "enter the number of element in this array"<< endl;//ask for input 
+	cin >> n;
+	int array[n];// the array 
+	for (int i = 0; i < n; i++)//ask for input 
+	{
+	    cout << "enter a number "<< endl;
+	    cin >> array[i];
+	}
+		cout << "the mode is " << mode(array, n) << endl;//display result 
+	
+	return 0;
+}
+int mode(int array[], int n)
+{
+    int max = 0;//the position of the mode 
+	int count = 0;// the number of time it exist in the array 
+	int num = -1;// the mode 
+	for (int i = 0; i < n-1;i++)//check all the number in the array 
+	{
+		for (int j = i+1; j < n;j++)// compare i with other number in the array 
+		{
+			if (*(array + i) == *(array + j))// if the two number equals, count + 1
+				count++;
+		}
+		if (count > max)//if count is bigger than the position of the mode, set the position of the mode to count  
+		{
+			max = count;
+			num = *(array + i);
+		}
+		count = 0;// reset count to 0 
+	}
+	return num;
+}

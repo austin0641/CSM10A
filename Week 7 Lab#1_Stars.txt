@@ -1,0 +1,23 @@
+/* stars
+Austin Kao
+9/28/2017
+version 1.1
+this program display two triangles (pattern A & B)
+*/
+#include<iostream>
+#include<iomanip>
+using namespace std;
+int main()
+{
+	for (int i = 0;i < 10;i++)//display 10 lines 
+	{
+		for (int n = 0;n <= i;n++)//display i number of star
+			cout << "+";
+		for (int b = 20;b >= i;b--)//display 20-i number of space
+			cout << " ";
+		for (int a = 10;a > i;a--)//display 10-i number of star
+			cout << "+";
+		cout << endl;//starts a new line
+	}
+	return 0;
+}

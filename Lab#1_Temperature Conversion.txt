@@ -1,0 +1,20 @@
+/* Temperature Conversion
+Austin Kao 
+8/24/2017
+version 1.0
+it allows the user to enter a Fahrenheit degree then convert it to Celsius degree. 
+
+*/
+#include <iostream> 
+using namespace std;
+int main()
+{
+	double f; //Fahrenheit
+	double c; //Celsius
+	cout << "Enter a Fahrenheit degree." << endl;
+	cin >> f;
+	c = (f - 32) / 1.8;
+	cout << f << " degrees Fahrenheit equals to " << c << " degree Celsius." << endl;
+
+	return 0;
+}

@@ -1,0 +1,35 @@
+/* largest/smallest array value 
+Austin Kao
+10/26/2017
+version 1.1
+this program that lets the user enter ten value and display the biggest and smallest value 
+*/
+#include <iostream>
+
+using namespace std;
+int main()
+{
+	double array[10];//define a array 
+	for (int i = 0;i < 10;i++)// allows the use to enter 10 values
+	{
+		cout << "(" << i+1 << ")" << "Enter a value ";
+		cin >> array[i];
+		cout << endl;
+	}
+
+	double biggest = array[0];//set the biggest/smallest value to the first value 
+	double smallest = array[0];
+
+	for (int a = 1;a < 10;a++)// go though each value 
+	{
+		if (biggest < array[a])// compare the biggest/smallest value with the each value, if there is a value bigger/smaller than the biggest/smallest value, change the biggest/smallest value to the bigger/smaller value.
+			biggest = array[a];
+		if (smallest > array[a])
+			smallest = array[a];
+	}
+
+	cout << "The biggest value out of the 10 value is " << biggest << endl;//display data
+	cout << "The smallest value out of the 10 value is " << smallest << endl;
+
+	return 0;
+}

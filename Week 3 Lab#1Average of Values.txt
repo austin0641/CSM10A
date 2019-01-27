@@ -1,0 +1,21 @@
+/* Average number
+Austin Kao 
+8/29/2017
+version 1.0
+this program allows the user to input five number and it wil show the sum and the average. 
+
+*/
+#include <iostream> 
+#include <cmath>
+using namespace std;
+int main()
+{
+	double a, b, c, d, e, avg, sum;
+	cout << "Enter five numbers" << endl; //get the numbers 
+	cin >> a >> b >> c >> d >> e;
+	sum = a + b + c + d + e;
+	cout << "The sum of five number is " << sum << endl;//calculate the sum 
+	avg = (a + b + c + d + e) / 5;
+	cout << "The average of five number is " << avg << endl;//calculate the average 
+	return 0;
+}

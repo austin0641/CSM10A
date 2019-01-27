@@ -1,0 +1,77 @@
+/*
+Austin Kao
+Sorting Benchmark
+11/15/2017
+vision 1.0
+this program sort the same array using bubble sort and selection sort and count how many exchanges did it take to sort the array 
+*/
+#include<iostream>
+using namespace std;
+int bubbleSort(int[]);//sort the array using bubble sort
+int selectionSort(int[]);// sort the array using selection sort
+
+int main()
+{
+   int arrayb[20];//array for bubble sort
+    int arrays[20];//array for selection sort 
+
+    for (int i = 0;i<20;i++)//ask user the value of the array
+    {
+        cout << "enter a number"<< endl;
+        cin >> arrayb[i];
+        arrays[i]=arrayb[i];
+    }
+    
+    cout << "It takes bubble sort "<<bubbleSort(arrayb)<<" exchanges to sort the array\n";//display result
+    cout << "It takes selection sort "<<selectionSort(arrays)<<" exchanges to sort the array\n";
+    for (int i = 0;i<20;i++)//display sorted array 
+    {
+        cout << arrayb[i] << " ";
+    }
+   cout << endl;
+    
+}
+int selectionSort(int arrays[])//sort the array using selection sort 
+{
+    int pos,min,cs=0;
+    for(int i =0;i<20;i++)//for each value
+    {
+       pos = i;
+       min = arrays[i];
+       for(int j = i; j<20 ; j++)//find the smallest value
+       {
+           if(arrays[j]<min)
+            pos = j;
+            min = arrays[pos];
+       }
+       if(pos != i)//change the value
+        {
+        min = arrays[pos];
+        arrays[pos]= arrays[i];
+        arrays[i]= min;
+        cs+=1;
+        }
+    }
+    return cs;
+}
+int bubbleSort(int arrayb[])//sort the array using bubble sort
+{
+    bool swap;
+    int temp,cb=0;
+    do 
+      {
+          swap = false;
+        for(int count =0;count < 19;count ++)//for each value 
+        {
+            if (arrayb[count]>arrayb[count +1])//exchanges the value
+            {
+                temp = arrayb[count];
+                arrayb[count]=arrayb[count+1];
+               arrayb[count+1]= temp;
+                cb+=1;
+                swap=true;
+            }
+        }
+     }while(swap);
+     return cb;
+}

@@ -1,0 +1,80 @@
+/*
+Geometry Calculator
+Austin Kao
+9/21/2017
+version 1.5
+it display a menu and allows the user to enter a number to see which shape do they want the area for. it then calculate the area of the shape.
+*/
+#include<iostream>
+using namespace std;
+int main()
+{
+	int n;
+	double Area;
+	cout << "Geometry Calculator\n";// display the menu
+	cout << "1. Calculate the Area of a Circle\n2. Calculate the Area of a Rectangle\n3. Calculate the Area of a Triangle\n4. Quit\n";
+	do
+	{
+	    cin >> n;
+        if (n == 1)
+		{
+			double r;
+			cout << "Enter the radius of the Circle\n";//ask for input
+			do 
+			{
+			cin >> r;
+			if (r < 0)
+			cout << "Value can't be negative\nTry again with a positive value\n";//ask for a postive input if the input is negative
+			} 
+			while (r < 0);
+			Area = r*r*3.14159;
+			cout << "The area of the Circle is " << Area << endl;//display results	
+			cout << "1. Calculate the Area of a Circle\n2. Calculate the Area of a Rectangle\n3. Calculate the Area of a Triangle\n4. Quit\n";//return to menu
+		}
+		else
+		if (n == 2)
+		{
+			double l;
+			double w;
+			cout << "Enter the length and the width of the Rectangle\n";//ask for input
+			do 
+			{
+			cin >> l >> w;
+			if (l < 0 || w < 0)
+			cout << "Value can't be negative\nTry again with positive values\n";//ask for a postive input if the input is negative
+			} 
+			while (l < 0 || w < 0);
+			Area = l*w;
+			cout << "The area of the Rectangle is " << Area << endl;//display results
+			cout << "1. Calculate the Area of a Circle\n2. Calculate the Area of a Rectangle\n3. Calculate the Area of a Triangle\n4. Quit\n";//return to menu
+		}
+		else
+		if (n == 3)
+		{
+			double b;
+			double h;
+			cout << "Enter the length and the width of the Triangle\n";//ask for input
+			do 
+			{
+			cin >> b >> h;
+			if (b < 0 || h < 0)
+			cout << "Value can't be negative\nTry again with positive values\n";//ask for a postive input if the input is negative
+			} 
+			while (b < 0 || h < 0);
+			Area = b*h*0.5;
+			cout << "The area of the Triangle is " << Area << endl;//display results	
+			cout << "1. Calculate the Area of a Circle\n2. Calculate the Area of a Rectangle\n3. Calculate the Area of a Triangle\n4. Quit\n";//return to menu
+		}
+		else
+		if (n == 4)
+			{
+			cout << "the program is now stoped\n";
+			return 0;//stop the program if user enter 4
+			}
+		else
+			cout << "Wrong input\nTry again with a number 1-4\n";//display error if other number are inputted
+	} 
+	while (n != 4);
+	return 0;
+}
+

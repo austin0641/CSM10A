@@ -1,0 +1,64 @@
+/* Average Test Score of Student
+Austin Kao
+11/7/2017
+version 1.1
+the program lets the uer enter 5 students' test scores for therr classes and claculates the average test scores for each student, it than display score for each student including the average score.
+*/
+#include<iostream>
+#include<fstream>
+#include<iomanip>
+using namespace std;
+const int nfs = 5;//number of student 
+const int nfc = 3;//number of class
+void getTestScore(double[][nfc], int);//take a empty array and return the score in a array
+void getAverageScore(double[nfs], double[][nfc], int);//take a empty array and the score array and return a array with average test score
+void displayData(double[nfs], double[][nfc], int);//display the students' each test score and average test score 
+
+void main()
+{
+	double testScore[nfs][nfc];//a array contain the number of student and for each srudent, what they got on each test
+	double aveScore[nfs];// a array contain the average number of score 
+	getTestScore(testScore, nfs);//get test score from user
+	getAverageScore(aveScore, testScore, nfs);//get average score uning test score 
+	displayData(aveScore, testScore, nfs);//display data
+}
+void getTestScore(double ts[][nfc], int nfs)//get test score from user
+{
+	for (int i = 0;i<nfs;i++)//for each student 
+		for (int j = 0;j < nfc;j++)//for each test 
+		{
+			cout << "Enter the test score for stuednt " << i + 1 << " , class " << j + 1 << " : ";//allow the student to enter the score
+			cin >> ts[i][j];//save the score in the array 
+			cout << endl;
+		}
+}
+void getAverageScore(double aveScore[nfs], double testScore[][nfc], int nfs)//get average score uning test score 
+{
+	double st = 0;//student's total score 
+	for (int i = 0;i < nfs;i++)//for each student
+	{
+		for (int j = 0;j < nfc;j++)//for each class
+		{
+			st += testScore[i][j];//add the score to student's total score 
+		}
+		aveScore[i] = st / nfc;//get the average 
+		st = 0;//set the total to 0 for next studnet
+	}
+}
+void displayData(double aveScore[nfs], double testScore[][nfc], int nfs)//display data in a chart
+{
+	cout << "class number   ";
+	for (int i = 0;i < nfc;i++)//disolay the first line 
+	{
+		cout << left << setw(6) <<i + 1;
+	}
+	cout << setw(6) << "average score " << endl;
+	for (int i = 0;i < nfs;i++)
+	{
+		cout << "student " << i + 1 << " :    ";//display student before each line 
+		for (int j = 0; j < nfc;j++)
+			cout << left << setw(6) << testScore[i][j];//this is the chart 
+		cout << left << setw(6) << setprecision(4) << aveScore[i];
+		cout << endl;
+	}
+}

@@ -1,0 +1,48 @@
+/* class activity 
+Austin Kao
+10/10/2017
+version 1.0
+it adds and time the number uner inputted
+
+*/
+#include <iostream> 
+using namespace std;
+
+
+double add(double &, double &);//funtion prototype 
+double product(double, double);//function prototype
+
+int main()
+{
+
+	double num1, num2, total;
+	
+	cout << "Enter the first number: ";
+	cin >> num1;
+	cout << "Enter the second number: ";
+	cin >> num2;
+
+	total = add(num1, num2);//function call
+
+	cout << "The total is : " << total << endl;
+	cout << "the product of two number is : " << product(num1, num2) << endl;
+	cout << "the first number is " << num1 << endl;
+	cout << "the second number is " << num2 << endl;
+	
+	return 0;
+}//end main
+//function definition
+double add(double &n1, double &n2)
+{
+	double sum;
+	sum = n1 + n2;
+	n1 += 2999;
+	return sum;
+}
+
+double product(double n1, double n2)
+{
+	double result;
+	result = n1*n2;
+	return result;
+}

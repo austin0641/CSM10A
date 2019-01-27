@@ -1,0 +1,26 @@
+/* Mortgage Calculator
+Austin Kao 
+8/24/2017
+version 1.0
+it allows the user to enter the principal, rate, term of the mortgage and calculate the monlthly payment 
+
+*/
+#include <iostream> 
+#include <cmath>
+using namespace std;
+int main()
+{
+	double total, term, rate;
+	double MonPay;
+	cout << "Enter the amount of the mortgage" << endl; 
+	cin >> total;// got principal 
+	cout << "Enter the term of the mortgage in years" << endl;
+	cin >> term;
+	term = term *12;// got term in month
+	cout << "Enter the interest rate of the mortgage" << endl;
+	cin >> rate;
+	rate = rate / 1200;//got rate 
+	MonPay = total * rate / (1.0 - pow(rate + 1, -term)); // calculate payment 
+	cout << "Your monthly payment is " << MonPay << endl;
+	return 0;
+}

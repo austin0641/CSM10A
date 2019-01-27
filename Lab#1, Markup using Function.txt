@@ -1,0 +1,33 @@
+/* Markup 
+Austin Kao
+10/17/2017
+version 1.0
+it allows the user to enter the wholesale cost and the markup percentage and display the retail price. this program does not accept negative value. 
+*/
+#include<iostream>
+using namespace std;
+double calculateRetail(double cost, double percentage);//return retail price
+int main()
+{
+	double cost, percentage;
+	cout << "Enter wholesale cost in dollar.\n";//ask for cost
+	cin >> cost;
+	while (cost < 0)//ask for a new value while the value is negative 
+	{
+		cout << "The value you've entered is negative, please enter again.\n";
+		cin >> cost;
+	}
+	cout << "Enter markup percentage.\n";//ask for percentage 
+	cin >> percentage;
+	while (percentage < 0)//ask for a new value while the value is negative 
+	{
+		cout << "The value you've entered is negative, please enter again.\n";
+		cin >> percentage;
+	}
+	cout << "The item's retail price is " << calculateRetail(cost, percentage) << " dollar.\n";//use function calculateRetail and display result 
+}
+
+double calculateRetail(double cost, double percentage)//take the cost and markup percentage and return retail price 
+{
+	return percentage*0.01*cost + cost;
+}

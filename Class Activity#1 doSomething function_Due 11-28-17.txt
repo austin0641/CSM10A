@@ -1,0 +1,38 @@
+/*
+class activity
+Austin Kao 
+11/30/2017
+version 1.0
+*/
+
+#include<iostream>
+using namespace std;
+int doSomething(int *, int *);
+int main()
+{
+	int x, y;
+	cout << "enter a value x\n";
+	cin >> x;
+	cout << "enter another value y\n";
+	cin >> y;
+	int z = doSomething(&x, &y);
+	cout << z << endl;
+
+	return 0;
+
+}
+int doSomething(int *x, int *y)
+
+{
+
+	int temp = *x;
+
+
+	*x = *y * 10;
+
+	*y = temp * 10;
+
+	return *x + *y;
+
+}um;
+}

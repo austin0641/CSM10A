@@ -1,0 +1,38 @@
+/*
+class activity function 
+Austin Kao
+10/5/2017
+version 1.0
+we got two value from the user and add and times them
+*/
+#include<iostream>
+using namespace std;
+
+
+double add(double, double);
+double m(double , double);
+
+int main()
+{
+	double a, b;
+	cout << "enter a number";
+	cin >> a;
+	cout << "enter a number";
+	cin >> b;
+	first();
+	second();
+	cout << add(a, b) << endl;
+	cout << m(a, b) << endl;
+	return 0;
+}
+
+
+double add(double a, double b)//adds the value
+{
+	return a + b;
+
+}
+double m(double a, double b)//adds the value 
+{
+	return a*b;
+}

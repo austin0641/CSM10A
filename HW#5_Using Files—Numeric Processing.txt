@@ -1,0 +1,32 @@
+/* Numeric Processing
+Austin Kao
+9/28/2017
+version 1.0
+this program read the file provided and find the number of numbers, the sum and the average of all the number in the file
+*/
+#include<iostream>
+#include<fstream>
+using namespace std;
+void main()
+{
+	int count = 0;//number of numbers
+	int sum = 0;//the sum
+	double ave = 0;//the average
+	int num = 0;//the number readed
+	ifstream inputf;
+	inputf.open("Random.txt", ios::in);//open the file 
+	if (inputf.is_open())
+	{
+		while (!inputf.eof())
+		{
+			inputf >> num;//read the number 
+			count += 1;//for each number, count +1
+			sum += num;//add the number to the sum
+		}
+		inputf.close();
+		ave = sum / count;//finds to average
+		cout << "The number of numbers is " << count << endl << "The sum is " << sum << endl << "The average is " << ave << endl;//display the results
+	}
+	else
+		cout << "File could not be opened." << endl;//display this if the file didn't open
+}

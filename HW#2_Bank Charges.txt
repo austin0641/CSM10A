@@ -1,0 +1,57 @@
+/* Bank Charges
+Austin Kao
+9/19/2017
+version 1.1
+it allows the user to enter the balance and number of check used. it will display the charge and the new balance. the program will stop if the number of check of if the balance is negitive.
+
+*/
+#include<iostream>
+using namespace std;
+int main()
+{
+	int checknum;
+	double balance;//bank balance 
+	cout << "Enter the number of checks you've written this month\n";//ask for number of cheaks 
+	cin >> checknum;
+	double charge = 10;//total charge
+	double ccharge = 0;//charge for check fee
+
+	if (checknum < 0)
+		cout << "Number of checks can't be negative.\n";//stop the program if number of check is negitive
+	
+	else {
+	if (checknum < 20)//get the check fee
+			ccharge += (checknum*0.1);
+	else if (checknum < 40)
+			ccharge += (checknum*0.08);
+	else if (checknum < 60)
+			ccharge += (checknum*0.06);
+	else if (checknum > 60)
+			ccharge += (checknum*0.04);
+
+	charge += ccharge;//find the charge 
+	cout << "Enter your balance\n";//ask for balance 
+	cin >> balance;
+	if (balance < 0)
+		cout << "URGENT MESSAGE:The account is already overdrawn!\n";//says the account is already overdrawn and stop the program
+	else {
+	if (balance < 400)
+			{
+				charge += 15;//charge 15$ if balance is less than 400
+			}
+		balance -= charge;//find the new balance
+
+
+		cout << "Your balance is now " << balance << endl;//dispaly the result
+		cout << "10$ for monthly fee" << endl;
+		cout << ccharge << "$ for check fee" << endl;
+	if (balance + charge < 400)
+		cout << "15$ for being having less than 400$ in your Balance" << endl;
+		cout << "total charge " << charge << "$" << endl;
+	if (balance < 0)
+		cout << "The account is now overdrawn!";
+	}
+	}
+	return 0;
+}
+

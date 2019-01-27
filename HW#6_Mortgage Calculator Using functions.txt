@@ -1,0 +1,45 @@
+/* Mortgage Calculator function
+Austin Kao
+10/10/2017
+version 1.0
+it allows the user to enter the principal, rate, term of the mortgage and calculate the monlthly payment using two function
+*/
+#include <iostream> 
+#include <cmath>
+using namespace std;
+
+void getInput(double &, double&, double &);
+double getPayment(double, double, double);
+
+int main()
+{
+	double total, term, rate;
+	
+	getInput(term, rate, total);// get input
+	
+	cout << "Your monthly payment is " << getPayment(term, rate, total) << endl;
+	return 0;
+}
+
+void getInput(double &term, double &rate, double &total)
+{
+	do {
+		cout << "Enter the amount of the mortgage (Do not enter a negative value)" << endl;
+		cin >> total;// got principal and check for input validation 
+	} while (total < 0);
+	do {
+		cout << "Enter the term of the mortgage in years (Do not enter a negative value)" << endl;
+		cin >> term;//got term and check for input validation 
+	} while (term < 0);
+	do {
+		cout << "Enter the interest rate of the mortgage (Do not enter a negative value)" << endl;
+		cin >> rate;//got rate and check for input validation 
+	} while (term < 0);
+}
+
+double getPayment(double term, double rate, double total)
+{
+	term = term * 12;// got term in month
+	rate = rate / 1200;//got rate 
+	return total * rate / (1.0 - pow(rate + 1, -term)); // return payment 
+}
